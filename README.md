@@ -93,18 +93,86 @@ Use pin 2 for the signal.
 
 Once built, connect the ESP32 via USB again.
 
-MicroPython does not have a servo class (it does have a PWM class), feel free to either figure out how servo's and PWM works, or use [servo.py](src/servo.py)
+MicroPython does not have a servo class (it does have a PWM class), feel free to either figure out how servo's and PWM works, or use [servo.py](src/servo.py) ;)
 
-```python:src/servo.py
+Copy the (src/servo.py) in an empty directory locally and open that directory in Thonny.
+
+Connect the ESP32, make sure Thonny is connected, right-click servo.py and choose ```upload to /```. The file is now uploaded to the ESP32 and can be imported via the REPL
+
+```python
+import servo.py
 ```
 
+Play a bit with the servo, make sure it works correctly
 
+```python
+import machine
 
+s = servo.Servo(machine.Pin(2))
+s.write_angle(90)
+```
 
+Pressing the arrow-up/arrow-down key in Thonny, when in the REPL, brings back earlier commands.
+
+Place the servo on your keyboards, use tape if needed. Find out interactively what angles you need to press and release the space bar.
+ 
+Next, make a new file, call is spel.py, and, based upon the values of the servo, create a function that presses the space bar every few seconds.
+
+Tip:
+```python
+# the time module has a sleep function
+import time
+
+#sleep for 2 seconds
+time.sleep(2)
+```
+
+Copy over your spel.py file, import it in the REPL and try it out.
+
+If it's not working as you expected, don't worry, you can edit the file and upload again.
+```
+Changes will not immediately take effect, you have to restart your micropython. Pressing crtl+d will restart the micropython. When you import your file now, you'll see the new code in action.
+```
 
 ## Step 2: Using an LDR (Light Dependent Resistor)
+Next up: sensing if an obstacle is approaching the dino. For that, we'll be using a LDR. This resistor has a low resistance when lit, and a very high one when in the dark.
+
+We can't measure resistance directly, but we can measure voltages. Build the necessary wiring as per our schema. Use pin 32 for measuring the voltage over the LDR. This value will be low in low light, high when lit. Don't forget to disconnect the ESP32 when working on the wiring!
+
+Once wiring is done,  have a look at [ldr.py](src/ldr.py).
+
+This file contains a little class that uses the ADC-class to deal with analogue inputs.
+
+Let's play with our sensor:
+```python
+import ldr
+
+r = ldr.LDR(32)
+
+print(r.value())
+```
+
+Do this a couple of times, cover the ldr and see how the value changes.
+
+Put the print statement in a loop and print out a value every few milliseconds.
 
 ## Bringing it all together
+Now it's time to get to the real deal.
+
+Open Chrome and go to [chrome://dino](chrome://dino) (or switch of your wifi and surf to any site in chrome ;) )
+
+Look how the sensor readout changes when an obstacle passes by.
+
+Tip: you might want to increase the brightness of your screen to increase contrast.
+
+Once you have a feel of the difference between full brightness and a cactus passing by, you can start changing your spel.py to make the dino jump whenever the sensor detects a passing obstacle.
+
+For the impatient, at [src/spel.py](src/spel.py) you can find some inspiration.
+
+Experiment away with timing, the placeing of the sensor, etc..
+
+And most of all, have fun :)
 
 # Wrapping up
 
+I hope this workshop gave you an idea on how the interactivity of micropython makes hardware and electronics more accessible for coaches and ninja's :)
