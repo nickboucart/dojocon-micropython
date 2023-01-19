@@ -76,6 +76,7 @@ Here's a schema of the entire project.
 
 ![electrical schema](media/dojocon-dino-fun_bb.png)
 
+
 Don't start building this entire schema just yet, we'll take it one step at the time ;)
 
 ## Step 1: Using a servo
