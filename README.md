@@ -9,7 +9,7 @@ Goals of this workshop:
 1. For those having some experience with Arduino, I hope the workshop will provide some hands-on experience to how the interactivity of micropython lowers the learning curve to start with hardware/electronics
 
 # Our Project
-In this workshop, we will automate the Chrome dino game using a servo that presses the space bar, and a light dependend resistor. We'll use micropython the do the coding and benefit from the interactivity of the python REPL to figure out the settings for our servo and resistor.
+In this workshop, we will automate the Chrome dino game using a servo that presses the space bar, and a light dependend resistor. We'll use micropython to do the coding and benefit from the interactivity of the python REPL ([Read, Evaluate, Print loop](https://www.freecodecamp.org/news/this-is-why-your-read-eval-print-loop-is-so-amazing-cf0362003983/)) to figure out the settings for our servo and resistor.
 
 ![Automating the chrome dino game](media/dino-game.gif)
 
@@ -175,4 +175,4 @@ And most of all, have fun :)
 
 # Wrapping up
 
-I hope this workshop gave you an idea on how the interactivity of micropython makes hardware and electronics more accessible for coaches and ninja's :)
+I hope this workshop gave you an idea on how the interactivity of micropython makes hardware and electronics more accessible for coaches and ninja's :
